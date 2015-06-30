@@ -1,18 +1,21 @@
 
-var React = require('react')
-var Router = require('react-router')
-var RouteHandler = Router.RouteHandler
-var Header = require('./Header.jsx')
+import React  from 'react'
+import Router from 'react-router'
+import Header from './Header.jsx'
+import css    from '../css/base.css'
 
-var css = require('../css/base.css')
+let RouteHandler = Router.RouteHandler
 
-var Root = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string
-  },
+export default class Root extends React.Component {
+  
+  constructor(props) {
+      super(props)
+      title: props.string
+  }
 
-  render: function () {
-    var initialProps = {
+  render () {
+
+    let initialProps = {
       __html: safeStringify(this.props)
     }
 
@@ -34,11 +37,8 @@ var Root = React.createClass({
       </html>
     )
   }
-})
+}
 
 function safeStringify (obj) {
   return JSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
 }
-
-module.exports = Root
-

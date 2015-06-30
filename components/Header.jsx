@@ -1,14 +1,18 @@
 
-var React = require('react')
-var Router = require('react-router')
-var Link = Router.Link
+import React  from 'react'
+import Router from 'react-router'
 
-var Header = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string
-  },
+let Link = Router.Link
 
-  render: function () {
+export default class Header extends React.Component {
+
+  constructor(props) {
+      super(props)
+      title: props.string
+  }
+
+  render () {
+
     return (
       <header className='py2'>
         <h1 className='mt0'>{this.props.title}</h1>
@@ -19,7 +23,4 @@ var Header = React.createClass({
       </header>
     )
   }
-})
-
-module.exports = Header
-
+}

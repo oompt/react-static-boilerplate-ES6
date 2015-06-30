@@ -11,11 +11,16 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      { test: /\.jsx$/, loader: 'jsx-loader' },
-      { test: /\.css/, loader: 'css-loader!cssnext-loader' }
-    ]
-  },
+      loaders: [
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+        { test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' },
+        {
+          test: /\.css/,
+          exclude: /colors\.css/,
+          loader: 'css-loader!cssnext-loader'
+        }
+      ]
+    },
 
   plugins: [
     new StaticSiteGeneratorPlugin('bundle.js', data.routes, data)
