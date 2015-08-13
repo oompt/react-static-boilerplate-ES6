@@ -32,7 +32,7 @@ export default class Root extends React.Component {
             id='initial-props'
             type='application/json'
             dangerouslySetInnerHTML={initialProps} />
-          <script src='bundle.js' />
+          <script src='/bundle.js' />
         </body>
       </html>
     )
