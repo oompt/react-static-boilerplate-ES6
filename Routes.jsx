@@ -11,7 +11,7 @@ let DefaultRoute = Router.DefaultRoute
 let Routes = (
   <Route handler={Root} path='/'>
     <DefaultRoute handler={Index} />
-    <Route path='/about' handler={About} />
+    <Route path='/about/' handler={About} />
   </Route>
 )
 
