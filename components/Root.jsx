@@ -1,8 +1,9 @@
 
-import React  from 'react'
-import Router from 'react-router'
-import Header from './Header.jsx'
-import css    from '../css/base.css'
+import React        from 'react'
+import Router       from 'react-router'
+import CircularJSON from 'circular-json'
+import Header       from './Header.jsx'
+import css          from '../css/base.css'
 
 let RouteHandler = Router.RouteHandler
 
@@ -40,5 +41,5 @@ export default class Root extends React.Component {
 }
 
 function safeStringify (obj) {
-  return JSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
+  return CircularJSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
 }
