@@ -39,6 +39,15 @@ export default class Root extends React.Component {
   }
 }
 
+// Copy all properties except webpackStats (added in by Webpack), which is huge, 
+// has circular references and will not be used by the React components anyways.
+// Make regex replacements to not break the HTML as well.
 function safeStringify (obj) {
-  return JSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
+  let objNoStats = {};
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key) && key != "webpackStats") {
+      objNoStats[key] = obj[key];
+    }
+  }
+  return JSON.stringify(objNoStats).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
 }
